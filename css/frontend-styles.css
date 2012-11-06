@@ -1,0 +1,19 @@
+#facebook-connect {
+	background-image: url("../images/ssi-wp-facebook.gif") !important;
+}
+
+#twitter-connect {
+	background-image: url("../images/ssi-wp-twitter.gif") !important;
+}
+
+#google-connect {
+	background-image: url("../images/ssi-wp-google.gif") !important;
+}
+
+.ssi-button {
+    width: 86px !important;
+}
+
+.addthis_toolbox{	
+	margin-bottom:10px;
+}
