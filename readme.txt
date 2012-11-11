@@ -8,7 +8,9 @@ Stable tag: 1.0.0
 The AddThis Social Sign In plugin allows any visitor to register or sign to your WordPress site using their Facebook, Twitter or Google account.
 
 == Description ==
-You don't have to make your users have to create new accounts for participating on your blog. Make signing up and signing in frictionless by integrating Social Sign In from AddThis. Your visitors save time by registering with their favorite social network, since we can automatically populate new profiles using information gleaned from their existing account. Nor will they have to setup and remember another password. When they return to your site, they simply click on their favorite network and sign in using their existing Facebook, Twitter or Google credentials.
+You don't have to make your users have to create new accounts for participating on your blog. Make signing up and signing in frictionless by integrating Social Sign In from AddThis! 
+
+Your visitors save time by registering with their favorite social network, since we can automatically populate new profiles using information gleaned from their existing account. Theey won't have to remember another password--when they return to your site, they simply click on their favorite network and sign in using their existing Facebook, Twitter or Google credentials.
 
 <a href="http://www.addthis.com/blog">AddThis Blog</a> | <a href="http://www.addthis.com/privacy">Privacy Policy</a>
 
