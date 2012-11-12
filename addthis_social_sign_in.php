@@ -12,9 +12,9 @@
 <?php
 function addthis_ssi_activate(){ 
 	
-	if (!function_exists( 'register_post_status' )) {
+	if ( version_compare( get_bloginfo( 'version' ) , '2.9' , '<' )){
 		deactivate_plugins( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ) );
-		wp_die( sprintf( __( "Require wordpress greater than 3.0")));	
+		wp_die( sprintf( __( "Require wordpress greater than 2.9")));	
 	}
 		
 	add_option("addthis_ssi_fbid", '', '', 'yes');
@@ -37,7 +37,9 @@ function addthis_ssi_render_buttons( $tmpl_mode = false ){
 	global $addthis_addjs;
 	
 	wp_enqueue_style( 'frontendstyles', plugins_url('css/frontend-styles.css', __FILE__) );
-	
+	if ( version_compare( get_bloginfo( 'version' ) , '3.3' , '<' ))
+		wp_head();
+			
 	echo '<div class="addthis_toolbox">
 			<a class="addthis_login_facebook"></a>
 			<a class="addthis_login_twitter"></a>
@@ -121,6 +123,9 @@ function addthis_ssi_getuser( $signature ) {
 }
 
 function addthis_social_sign_in() {
+	
+	if ( version_compare( get_bloginfo( 'version' ) , '3.1' , '<' ))
+		require_once(ABSPATH . WPINC . '/registration.php');
 	 
 	if( $_REQUEST[ 'addthis_signature' ] != "" ) {
 
@@ -203,6 +208,9 @@ function addthis_ssi_html_page() {
 	
 	wp_enqueue_script('adminscript', plugins_url('js/admin.js', __FILE__));
 	wp_enqueue_style( 'adminstyles', plugins_url('css/admin-styles.css', __FILE__) );
+	
+	if ( version_compare( get_bloginfo( 'version' ) , '3.3' , '<' ))
+		wp_head();
 	
 	require("views/settings.php");
 }
@@ -291,4 +299,53 @@ function addthis_ssi_remove() {
 
 /* Runs on plugin deactivation*/
 register_deactivation_hook( __FILE__, 'addthis_ssi_remove' );
+
+/* 2.9 compatability functions*/
+if (! function_exists('get_site_url'))
+{
+	function get_site_url( $blog_id = null, $path = '', $scheme = null ) {
+		// should the list of allowed schemes be maintained elsewhere?
+		$orig_scheme = $scheme;
+		if ( !in_array( $scheme, array( 'http', 'https', 'relative' ) ) ) {
+			if ( ( 'login_post' == $scheme || 'rpc' == $scheme ) && ( force_ssl_login() || force_ssl_admin() ) )
+				$scheme = 'https';
+			elseif ( ( 'login' == $scheme ) && force_ssl_admin() )
+				$scheme = 'https';
+			elseif ( ( 'admin' == $scheme ) && force_ssl_admin() )
+				$scheme = 'https';
+			else
+				$scheme = ( is_ssl() ? 'https' : 'http' );
+		}
+	
+		if ( empty( $blog_id ) || !is_multisite() )
+			$url = get_option( 'siteurl' );
+		else
+			$url = get_blog_option( $blog_id, 'siteurl' );
+	
+		if ( 'relative' == $scheme )
+			$url = preg_replace( '#^.+://[^/]*#', '', $url );
+		elseif ( 'http' != $scheme )
+			$url = str_replace( 'http://', "{$scheme}://", $url );
+	
+		if ( !empty( $path ) && is_string( $path ) && strpos( $path, '..' ) === false )
+			$url .= '/' . ltrim( $path, '/' );
+	
+		return apply_filters( 'site_url', $url, $path, $orig_scheme, $blog_id );
+	}
+}
+
+if (! function_exists('update_user_meta'))
+{
+	function update_user_meta($user_id, $meta_key, $meta_value, $prev_value = '') {
+		return update_metadata('user', $user_id, $meta_key, $meta_value, $prev_value);
+	}
+}
+
+if (! function_exists('get_user_meta'))
+{
+	function get_user_meta($user_id, $key = '', $single = false) {
+		return get_metadata('user', $user_id, $key, $single);
+	}
+}
+
 ?>

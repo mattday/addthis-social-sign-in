@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class for managing AddThis script includes across all its plugins.
+ */
 Class AddThis_addjs{
     /**
     * var bool check to see if we have added our JS already.  Ensures that we don't add it twice
@@ -38,18 +41,18 @@ Class AddThis_addjs{
             _doing_it_wrong( 'addthis_addjs', 'Only one instance of this class should be initialized.  Look for the $addthis_addjs global first',1 ); 
         }
 
-		$this->productCode = 'wpp-ssi'; 
-
-        // Version of AddThis code to use
-        $this->atversion = '250';
+        $this->productCode = ADDTHIS_PRODUCT_VERSION;
 
         // We haven't added our JS yet. Or at least better not have.
         $this->_js_added = false;
 
         $this->_options = $options;
-
+        
+        // Version of AddThis code to use
+        $this->atversion = 300;
+        
         // set the cuid
-        $base = home_url();
+        $base = get_option('home');
         $cuid = hash_hmac('md5', $base, 'addthis'); 
         $this->_cuid = $cuid;
 
@@ -107,7 +110,7 @@ Class AddThis_addjs{
     }
 
     function wrapJs(){
-		$this->jsToAdd .= "var addthis_product = '".$this->productCode."';\n"; 
+        $this->jsToAdd .= "var addthis_product = '".$this->productCode."';\n";
         $this->jsToAdd = '<script type="text/javascript">' . $this->jsToAdd . '</script>';
     }
 
@@ -121,7 +124,7 @@ Class AddThis_addjs{
     }
 
     function check_for_footer(){
-        $url = add_query_arg( array( 'attest' => 'true') , home_url() );
+        $url = add_query_arg( array( 'attest' => 'true') , get_option('home'));
         $response = wp_remote_get( $url, array( 'sslverify' => false ) );
         $code = (int) wp_remote_retrieve_response_code( $response );
             if ( $code == 200 ) {
@@ -237,14 +240,6 @@ Class AddThis_addjs{
             }
 
             return '<p class="addthis_more_promo">' .$string . '</p>';
-            
-
-
-
-
-
         }
     }
-
 }
-
