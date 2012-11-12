@@ -3,7 +3,7 @@
    Plugin Name: AddThis Social Sign In
    Plugin URI: http://www.addthis.com/
    Description: A lightweight javascript plugin helps users to sign in to the wordpress site using social media services.
-   Version: 1.0.0
+   Version: 1.0.1
    Author: AddThis Team
    Author URI: http://www.addthis.com
    License: Apache
