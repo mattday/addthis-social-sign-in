@@ -60,7 +60,7 @@ Over 15,000,000 sites have installed AddThis. With over a billion unique users, 
 == Changelog ==
 = 1.0.1 =
 * Update to support WordPress 2.9+
-* Bug fixe to resolve issue where incorrect JS file was being included
+* Bug fix to resolve issue where incorrect JS file was being included
 
 == Upgrade Notice ==
 = 1.0.1 =
