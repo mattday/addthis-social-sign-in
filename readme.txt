@@ -3,7 +3,7 @@ Contributors: vipinss, srijith.v, solchea, _mjk_
 Tags: addthis, social, widget, social sign in, social sign on, Facebook, Twitter, Google, AddThis 
 Requires at least: 2.9
 Tested up to: 3.4.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 The AddThis Social Sign In plugin allows any visitor to register or sign to your WordPress site using their Facebook, Twitter or Google account.
 
@@ -55,4 +55,13 @@ All of the options required through this plugin require javascript. JavaScript m
 1. It's free!
 
 = Who else uses AddThis? =
-Over 14,000,000 sites have installed AddThis. With over a billion unique users, AddThis is helping publishers and brands all over the world, in more than sixty languages. You might be surprised who's using AddThis--<a href="http://www.addthis.com/features#partners">here are just a few</a>.
+Over 15,000,000 sites have installed AddThis. With over a billion unique users, AddThis is helping publishers and brands all over the world, in more than sixty languages. You might be surprised who's using AddThis--<a href="http://www.addthis.com/features#partners">here are just a few</a>.
+
+== Changelog ==
+= 1.0.1 =
+* Update to support WordPress 2.9+
+* Bug fixe to resolve issue where incorrect JS file was being included
+
+== Upgrade Notice ==
+= 1.0.1 =
+Support for older versions of WordPress and bug fixes
