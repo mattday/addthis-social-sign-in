@@ -66,7 +66,7 @@ echo $addthis_addjs->getAtPluginPromoText();
 			<ol id="g-instructions">
 				<li>Log in to your <a href="https://code.google.com/apis/console" target="_blank">Google developer account</a>.</li>
 				<li>Create a new project or select one that you've created before.</li>
-				<li>Copy the project's "App ID/API key" and paste it into the field above.</li>
+				<li>Go to the proejct's API Access page and copy the project's "Client ID" and paste it into the field above.</li>
 				<li>
 					On the API project settings page, set the "Authorized Redirect URIs" field to:<br/>
 					<label class="addthis-ssi-code">
