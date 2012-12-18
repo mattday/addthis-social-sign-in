@@ -57,6 +57,12 @@ All of the options required through this plugin require javascript. JavaScript m
 = Who else uses AddThis? =
 Over 15,000,000 sites have installed AddThis. With over a billion unique users, AddThis is helping publishers and brands all over the world, in more than sixty languages. You might be surprised who's using AddThis--<a href="http://www.addthis.com/features#partners">here are just a few</a>.
 
+== Screenshots ==
+
+1. Login screen with Social Media account options
+2. Linking Social Media accounts
+3. Configurable user roles
+
 == Changelog ==
 = 1.0.1 =
 * Update to support WordPress 2.9+
