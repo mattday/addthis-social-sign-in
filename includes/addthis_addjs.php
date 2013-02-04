@@ -17,7 +17,8 @@ Class AddThis_addjs{
         'AddThis Social Bookmarking Widget' => array('http://wordpress.org/extend/plugins/addthis/', 'Share') ,
         'AddThis Follow Widget' => array('http://wordpress.org/extend/plugins/addthis-follow/', 'Follow'),
 //        'AddThis Trending Content Widget' => array('http://wordpress.org/extend/plugins/addthis-trending', 'Trending' ),
-        'AddThis Welcome Bar' => array('http://wordpress.org/extend/plugins/addthis-welcome/', 'Welcome'), 
+        'AddThis Welcome Bar' => array('http://wordpress.org/extend/plugins/addthis-welcome/', 'Welcome'),
+    	'AddThis Social Sign In' => array('http://wordpress.org/extend/plugins/addthis-social-sign-in/', 'SSI'),  
     );
     private $_atInstalled = array();
 
@@ -41,7 +42,7 @@ Class AddThis_addjs{
             _doing_it_wrong( 'addthis_addjs', 'Only one instance of this class should be initialized.  Look for the $addthis_addjs global first',1 ); 
         }
 
-        $this->productCode = ADDTHIS_PRODUCT_VERSION;
+        $this->productCode = 'wppssi-200';
 
         // We haven't added our JS yet. Or at least better not have.
         $this->_js_added = false;
@@ -94,6 +95,10 @@ Class AddThis_addjs{
             $this->addAfterToJs();
             echo $this->jsToAdd;
             $this->_js_added = true;
+            $this->jsToAdd = false;
+        } else {        	
+        	 $this->addAfterToJs();
+        	 echo $this->jsToAdd;
         }
     }
 
@@ -151,7 +156,12 @@ Class AddThis_addjs{
     }
     
     function addAfterScript($newData){
-        $this->jsAfterAdd .= $newData;
+    	if ( $this->_js_added != true )
+        {
+        	$this->jsAfterAdd .= $newData;
+        } else {
+        	$this->jsAfterAdd = $newData;
+        }
     }
 
     function addWidgetToJs(){
@@ -159,7 +169,7 @@ Class AddThis_addjs{
     }
 
     function addAfterToJs(){
-        if (! empty($this->jsAfterAdd));
+        if (! empty($this->jsAfterAdd))
             $this->jsToAdd .= '<script type="text/javascript">' . $this->jsAfterAdd . '</script>';
     }
 
@@ -232,11 +242,8 @@ Class AddThis_addjs{
                     else if ($i == ($count -2))
                         $string .= ' and ';
                     else if ($i == ($count -1))
-                        $string .= ' plugins available.';
-                    
+                        $string .= ' plugins available.';                    
                 }
-
-
             }
 
             return '<p class="addthis_more_promo">' .$string . '</p>';

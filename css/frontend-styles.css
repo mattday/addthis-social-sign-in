@@ -1,19 +1,298 @@
 #facebook-connect {
-	background-image: url("../images/ssi-wp-facebook.gif") !important;
+	background-image: url("../images/ssi-wp-facebook.png") !important;
 }
 
 #twitter-connect {
-	background-image: url("../images/ssi-wp-twitter.gif") !important;
+	background-image: url("../images/ssi-wp-twitter.png") !important;
 }
 
 #google-connect {
-	background-image: url("../images/ssi-wp-google.gif") !important;
+	background-image: url("../images/ssi-wp-google.png") !important;
+}
+
+#linkedin-connect {
+	background-image: url("../images/ssi-wp-linkedin.png") !important;
+}
+
+#at-yahoo-connect {
+	background-image: url("../images/ssi-wp-yahoo.png") !important;
 }
 
 .ssi-button {
     width: 86px !important;
 }
 
-.addthis_toolbox{	
+.addthis_toolbox {	
 	margin-bottom:10px;
+}
+
+.at_button_label {
+	display:block;
+	padding-bottom:8px;
+}	
+
+.at_overlay
+{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: #000;   
+    opacity: .5;
+    filter: alpha(opacity=50);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+
+}
+
+.at_popup
+{
+    position: absolute;
+    top: 10%;
+    margin-left: -50px;
+    margin-top: -10px;
+    width: 640px;
+    height: 480px;   
+    background: white;   
+    border:1px black;
+}
+
+/* AT3 SIMPLE LIGHTBOX  
+------------------------------------------------------------ */
+
+.at3lb-dark {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: url(../images/at3-lb-dark.png);
+	background: rgba(0,0,0,.85);
+	z-index: 9998;
+}
+.at3lb-light {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: url(../images/at3-lb-light.png);
+	background: rgba(255,255,255,.85);
+	z-index: 9998;
+}
+
+/* AT3 POP WINDOW 
+------------------------------------------------------------ */
+
+
+.at3win {
+	position: fixed;
+	_position: absolute;
+	top: 10%;
+	left: 50%;
+	margin-left: -320px;
+	background: #fff;
+	border: 1px solid #d2d2d1;
+	width: 640px;
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+	box-shadow: 0 0 10px rgba(0,0,0,.3);
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	font-family: "helvetica neue",helvetica,arial,sans-serif;
+	z-index: 9999;
+}
+
+/* AT3 Header */
+
+.at3win .at3win-header {
+	position: relative;
+	border-bottom: 1px solid #d2d2d1;
+	background: #f1f1f1;
+	height: 49px;
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	cursor: default;
+}
+.at3win .at3win-header p {
+	position: absolute;
+	top: 16px;
+	left: 100px;
+	width: 500px;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	line-height: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	_text-overflow: hidden;
+}
+.at3win .at3win-header h3 {
+	height: 49px;
+	line-height: 49px;
+	margin: 0 50px 0 0;
+	padding: 0 30px;
+	font-size: 16px;
+	font-weight: bold;
+	text-shadow: 0 1px #fff;
+	color: #333;
+}	
+.at3win .at3win-header a.at3-close {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	/*background: url(images/at3-x.png) no-repeat center 16px;*/
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcFJpZ2h0czpNYXJrZWQ9IkZhbHNlIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQwNzc2QTQ5Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQwNzc2QTQ4Qjk1RDExRTFCMkE4OEUxNTUwRjMwREY0IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzMgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InV1aWQ6OEE1QUU0REMzMEU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6M0M5RkJGRTEyQUU4REYxMUJCNzJGQkJCQzlBM0Y1RkMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz78RHhFAAAApUlEQVR42rxTiQnAIAxU6QAdxRW6iZ1EnKRu4gqO0g1sCilEvT7Q0kBQ9O4wl6hLKepNGPUyhmMTQhhpSZTZez8jMGEWWizlRJi1fUHiS8dARHaMSaiELPaViCB3WC1NBMB4CMozWaJuuwBE1BkZdoEB8Qn5kzaaC7fbgN0xN+TYlNOJmCvyXjPwpBKRL7BnhgERiwQmHhDothDJjMVz8Ptv3AQYAJWjVVdnlDZCAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-position: center center;
+	*background-image: url(../images/at3-x.png);
+	border-left: 1px solid #d2d2d1;
+	width: 49px;
+	height: 49px;
+	line-height: 49px;
+	overflow: hidden;
+	text-indent: -9999px;
+	text-shadow: none;
+	cursor: pointer;
+}
+.at3win .at3win-header a:hover {
+	background-color: #e5e5e5;
+	-webkit-border-top-right-radius: 7px;
+	-moz-border-radius-topright: 7px;
+	border-top-right-radius: 7px;
+}
+
+
+
+/* AT3 Content */
+
+.at3win .at3win-content {
+	position: relative;
+	background: #fff;
+	-webkit-border-bottom-left-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	padding: 10px 30px 20px;
+	font-size: 13px;
+}
+.at3win .at3win-content p b {
+	color: #000;
+}
+.at3win .at3win-content table {
+	border-collapse: collapse;
+}
+.at3win .at3win-content table td {
+	padding-bottom: 5px;
+}	
+.at3win .at3win-content table td input[type="text"] {
+	width: 260px;
+	font-size: 15px;
+}	
+.at3win .at3win-content table td input[type="text"].atem {
+	width: 550px;
+}
+.at3win .at3win-content label {
+	display: block;
+	padding-bottom: 5px;
+	color: #000;
+}
+.at3win .at3win-content sup {
+	font-weight: bold;
+	color: #f00;
+}	
+.at3win .at3win-content .req {
+	display: inline;
+	padding-right: 20px;
+	font-size: 80%;
+	color: #999;
+	float: right;
+}
+.at3win .at3win-content .error-alert {
+	background: #F2DEDE;
+	width: 510px;
+	border: 1px solid #EED3D7;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 8px 35px 8px 14px;
+	margin: 5px 0 15px 0;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: #B94A48;	
+}
+
+
+.at3win ::selection { background: #FE6D4C; color:#fff; }
+.at3win ::-moz-selection { background: #FE6D4C; color:#fff; }
+
+
+/* Blue Button */
+
+.btn-blue {
+	background: #098df4  !important;
+	background-image: linear-gradient(top, #0d98fb, #1a5db3);
+    background-image: -webkit-linear-gradient(#0d98fb, #1a5db3);
+    background-image: -moz-linear-gradient(#0d98fb, #1a5db3);
+    background-image: -ms-linear-gradient(top, #0d98fb, #1a5db3);
+	border: 1px solid #125cb5  !important;
+	border: none\9;
+	border-radius: 5px  !important;
+		-moz-border-radius: 5px  !important;
+		-webkit-border-radius: 5px  !important;
+	box-shadow: 0 1px 1px #71c0fd inset;
+	padding: 10px 20px;
+	font-weight: 400;
+	font-size: 14px;
+	color: #fff  !important;
+}
+.btn-blue:hover {
+	background: #0780df  !important;
+	background-image: linear-gradient(top, #0a85dd, #104c97);
+    background-image: -webkit-linear-gradient(#0a85dd, #104c97);
+    background-image: -moz-linear-gradient(#0a85dd, #104c97);
+    background-image: -ms-linear-gradient(top, #0a85dd, #104c97);
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+}
+.btn-blue:active {
+	position: relative;
+	top: 1px;
+	bottom: -1px;
+	background: #125cb5;
+	box-shadow: none;
+}
+
+/* Form Inputs */
+
+input[type="text"], input[type="password"], textarea {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	line-height: 1.5em;
+	padding: 4px;
+	outline: none;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;
+    -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;
+}
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+	border-color: #a2a1a1;
+	color: #000;
+	box-shadow: 0 0 6px #83c8f0;
+	-moz-box-shadow: 0 0 6px #83c8f0;
+	-webkit-box-shadow: 0 0 6px #83c8f0;
+}
+.input-error {
+	border-color: #cd5957 !important;
 }
