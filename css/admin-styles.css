@@ -1,0 +1,95 @@
+.addthis-ssi-form {}
+
+.addthis-ssi-form ol {
+	font-size: 1.0em;
+	margin: 5px 0;
+	padding: 0 0 0 20px;
+}
+
+.addthis-ssi-form ol li {
+	margin: 0;
+	padding: 0;
+}
+
+.addthis-ssi-field-label {
+	font-family : Arial, Helvetica Neue;
+	font-size: 12px;
+	font-weight: bold;
+	color:#444444;             
+}
+.addthis-fld-td {
+	width:200px;	
+}
+
+.addthis-pubid-spn{
+	float:right;
+}	
+
+.addthis-ssi-instructions {
+	font-family :Arial, Helvetica Neue;
+	font-size:12px;
+	font-weight:normal;
+	color:#444444; 
+	line-height:24px;            
+}
+
+.addthis-ssi-line {
+	color:#e9e9e9;	
+	height:1px;          
+}
+
+.addthis-ssi-field {
+	border:1px solid #d0d0d0;
+	width:170px;
+	height:24px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	font-family :Arial, Helvetica Neue;
+	font-size:12px;
+	font-weight:normal;
+	color:#444444; 	
+}
+
+.addthis-ssi-checkbox {
+	border:1px solid #d0d0d0;
+	width:14px;
+	height:14px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;          
+}
+
+.addthis-ssi-code{
+	background-color:#eeeeee;
+}	
+
+#fb-instructions{
+	display:none;
+}
+
+#tw-instructions{
+	display:none;
+}
+
+#g-instructions{
+	display:none;
+}
+
+#ln-instructions{
+	display:none;
+}
+
+#y-instructions{
+	display:none;
+}
+
+#icon-edit.addthis.icon32{
+background: url(../images/widget005_32x32_top.png) no-repeat left;
+background-position: 0 -416px!important;
+overflow: hidden;
+display: block;
+height: 32px!important;
+width: 32px!important;
+line-height: 32px!important;
+}
