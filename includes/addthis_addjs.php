@@ -42,7 +42,7 @@ Class AddThis_addjs{
             _doing_it_wrong( 'addthis_addjs', 'Only one instance of this class should be initialized.  Look for the $addthis_addjs global first',1 ); 
         }
 
-        $this->productCode = 'wppssi-200';
+        $this->productCode = ADDTHIS_SSI_PRODUCT_VERSION;
 
         // We haven't added our JS yet. Or at least better not have.
         $this->_js_added = false;
@@ -50,7 +50,7 @@ Class AddThis_addjs{
         $this->_options = $options;
         
         // Version of AddThis code to use
-        $this->atversion = 300;
+        $this->atversion = ADDTHIS_SSI_AT_VERSION;
         
         // set the cuid
         $base = get_option('home');
@@ -129,7 +129,7 @@ Class AddThis_addjs{
     }
 
     function check_for_footer(){
-        $url = add_query_arg( array( 'attest' => 'true') , get_option('home'));
+        $url = get_home_url();
         $response = wp_remote_get( $url, array( 'sslverify' => false ) );
         $code = (int) wp_remote_retrieve_response_code( $response );
             if ( $code == 200 ) {
@@ -138,12 +138,35 @@ Class AddThis_addjs{
                 return (bool)( strstr( $html, '<!--wp_footer-->' ) );
             }
     }
+
+	function get_home_url( $blog_id = null, $path = '', $scheme = null ) {
+		$orig_scheme = $scheme;
+	
+		if ( empty( $blog_id ) || !is_multisite() ) {
+			$url = get_option( 'home' );
+		} else {
+			switch_to_blog( $blog_id );
+			$url = get_option( 'home' );
+			restore_current_blog();
+		}
+	
+		if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ) ) ) {
+			if ( is_ssl() && ! is_admin() )
+				$scheme = 'https';
+			else
+				$scheme = parse_url( $url, PHP_URL_SCHEME );
+		}
+	
+		$url = set_url_scheme( $url, $scheme );
+	
+		if ( $path && is_string( $path ) )
+			$url .= '/' . ltrim( $path, '/' );
+	
+		return apply_filters( 'home_url', $url, $path, $orig_scheme, $blog_id );
+	}    
     
     function maybe_add_footer_comment(){
-        if ( $_GET['attest'] = 'true' )
-        {
             add_action( 'wp_footer', array($this, 'test_footer' ), 99999 ); // Some obscene priority, make sure we run last
-        }
     }
 
     function test_footer(){

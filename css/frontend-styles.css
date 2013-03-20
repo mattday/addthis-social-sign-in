@@ -2,7 +2,7 @@
 	background-image: url("../images/ssi-wp-facebook.png") !important;
 }
 
-#twitter-connect {
+#at-twitter-connect {
 	background-image: url("../images/ssi-wp-twitter.png") !important;
 }
 
@@ -10,7 +10,7 @@
 	background-image: url("../images/ssi-wp-google.png") !important;
 }
 
-#linkedin-connect {
+#at-linkedin-connect {
 	background-image: url("../images/ssi-wp-linkedin.png") !important;
 }
 
@@ -29,7 +29,17 @@
 .at_button_label {
 	display:block;
 	padding-bottom:8px;
-}	
+}
+
+.email-exist-message {
+	font-size:11px !important;
+	border: 1px solid #EED3D7;
+	color:#777777;
+			-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 3px 5px 4px 7px;
+}
 
 .at_overlay
 {
@@ -84,7 +94,6 @@
 /* AT3 POP WINDOW 
 ------------------------------------------------------------ */
 
-
 .at3win {
 	position: fixed;
 	_position: absolute;
@@ -119,6 +128,7 @@
 	border-top-right-radius: 8px;
 	cursor: default;
 }
+
 .at3win .at3win-header p {
 	position: absolute;
 	top: 16px;
@@ -133,6 +143,7 @@
 	text-overflow: ellipsis;
 	_text-overflow: hidden;
 }
+
 .at3win .at3win-header h3 {
 	height: 49px;
 	line-height: 49px;
@@ -142,7 +153,8 @@
 	font-weight: bold;
 	text-shadow: 0 1px #fff;
 	color: #333;
-}	
+}
+
 .at3win .at3win-header a.at3-close {
 	display: block;
 	position: absolute;
@@ -162,14 +174,13 @@
 	text-shadow: none;
 	cursor: pointer;
 }
+
 .at3win .at3win-header a:hover {
 	background-color: #e5e5e5;
 	-webkit-border-top-right-radius: 7px;
 	-moz-border-radius-topright: 7px;
 	border-top-right-radius: 7px;
 }
-
-
 
 /* AT3 Content */
 
@@ -185,31 +196,39 @@
 	padding: 10px 30px 20px;
 	font-size: 13px;
 }
+
 .at3win .at3win-content p b {
 	color: #000;
 }
+
 .at3win .at3win-content table {
 	border-collapse: collapse;
 }
+
 .at3win .at3win-content table td {
 	padding-bottom: 5px;
-}	
+}
+
 .at3win .at3win-content table td input[type="text"] {
 	width: 260px;
 	font-size: 15px;
-}	
+}
+
 .at3win .at3win-content table td input[type="text"].atem {
 	width: 550px;
 }
+
 .at3win .at3win-content label {
 	display: block;
 	padding-bottom: 5px;
 	color: #000;
 }
+
 .at3win .at3win-content sup {
 	font-weight: bold;
 	color: #f00;
-}	
+}
+
 .at3win .at3win-content .req {
 	display: inline;
 	padding-right: 20px;
@@ -217,6 +236,7 @@
 	color: #999;
 	float: right;
 }
+
 .at3win .at3win-content .error-alert {
 	background: #F2DEDE;
 	width: 510px;
@@ -230,10 +250,19 @@
 	color: #B94A48;	
 }
 
+.at3win .at3win-content .email-exist-alert {
+	width: 510px;
+	border: 1px solid #EED3D7;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 8px 35px 8px 14px;
+	margin: 5px 0 15px 0;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
 
 .at3win ::selection { background: #FE6D4C; color:#fff; }
 .at3win ::-moz-selection { background: #FE6D4C; color:#fff; }
-
 
 /* Blue Button */
 
@@ -254,6 +283,7 @@
 	font-size: 14px;
 	color: #fff  !important;
 }
+
 .btn-blue:hover {
 	background: #0780df  !important;
 	background-image: linear-gradient(top, #0a85dd, #104c97);
@@ -264,6 +294,7 @@
 	color: #fff;
 	cursor: pointer;
 }
+
 .btn-blue:active {
 	position: relative;
 	top: 1px;
@@ -286,6 +317,7 @@ input[type="text"], input[type="password"], textarea {
     -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;
     -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;
 }
+
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 	border-color: #a2a1a1;
 	color: #000;
@@ -293,6 +325,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 	-moz-box-shadow: 0 0 6px #83c8f0;
 	-webkit-box-shadow: 0 0 6px #83c8f0;
 }
+
 .input-error {
 	border-color: #cd5957 !important;
 }
