@@ -70,6 +70,6 @@ Over 15,000,000 sites have installed AddThis. With over a billion unique users, 
 * Advanced control over post login redirection
 
 == Upgrade Notice ==
-= 2.0.0 =
-* Added email popup feature to collect profile data, email and username from users
-* Added new services - Linkedin and Yahoo
+= 2.0.1 =
+* Attach SSI credentials with existing user instead of creating new one.
+* Fixed compatability issues with other addthis plugins.
