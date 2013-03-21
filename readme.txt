@@ -31,6 +31,15 @@ To upload the plugin through WordPress, instead of FTP:
 
 1. Upload the downloaded zip file on the 'Add New' plugins screen (see the 'Upload' tab) in your WordPress admin area and activate.
 
+== Screenshots ==
+
+1. SSI settings page
+
+2. Enable login popup option to collect profile data, email and username from users
+
+3. Login page with SSI buttons
+
+4. Login popup screen
 
 == Frequently Asked Questions ==
 
