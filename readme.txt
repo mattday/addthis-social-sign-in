@@ -68,6 +68,9 @@ Over 15,000,000 sites have installed AddThis. With over a billion unique users, 
 
 == Changelog ==
 
+= 2.0.2 =
+* Fixing twitter API 1.0 deprecated issue and header warnings
+
 = 2.0.1 =
 * Attach SSI credentials with existing user instead of creating new one.
 * Fixed compatability issues with other addthis plugins.
@@ -79,6 +82,5 @@ Over 15,000,000 sites have installed AddThis. With over a billion unique users, 
 * Advanced control over post login redirection
 
 == Upgrade Notice ==
-= 2.0.1 =
-* Attach SSI credentials with existing user instead of creating new one.
-* Fixed compatability issues with other addthis plugins.
+= 2.0.2 =
+* Fixing twitter API 1.0 deprecated issue and header warnings
