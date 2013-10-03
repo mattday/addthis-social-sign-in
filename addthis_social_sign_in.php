@@ -204,7 +204,7 @@ function addthis_social_sign_in() {
 		if( $at_exist_userdata_email == $current_user->user_email ){ 
 			addthis_update_meta( $current_user->ID, $at_exist_userdata_service, $at_exist_userdata_signature, $at_exist_userdata_avatar );
 			setcookie( "at_ssi_exist_userdata", "", time()-1000, "/" );
-			add_action('admin_notices', 'at_exist_user_success');			
+			add_action('admin_notices', 'addthis_exist_user_success');			
 		}		
 	}
 
@@ -311,8 +311,8 @@ function addthis_ssi_twitter(){
 		    header( 'Location: '. $at_tw_authurl );
 		    exit(); 
 		} else {
-			add_action( 'login_form', 'at_invalid_ids', 0 );
-			add_action( 'register_form', 'at_invalid_ids', 0 );			
+			add_action( 'login_form', 'addthis_invalid_ids', 0 );
+			add_action( 'register_form', 'addthis_invalid_ids', 0 );			
 		}		
 	}	
 }
@@ -349,8 +349,8 @@ function addthis_ssi_linkedin(){
           	header( 'Location: ' . LINKEDIN::_URL_AUTH . $response[ 'linkedin' ][ 'oauth_token' ] );
           	exit();
         } else {
-        	add_action( 'login_form', 'at_invalid_ids', 0 );
-			add_action( 'register_form', 'at_invalid_ids', 0 );        	
+        	add_action( 'login_form', 'addthis_invalid_ids', 0 );
+			add_action( 'register_form', 'addthis_invalid_ids', 0 );        	
         }
     } else { 
 
@@ -451,12 +451,12 @@ function addthis_ssi_yahoo() {
 }
 
 /*Notice for Invalid AppIds*/  
-function at_invalid_ids(){	
+function addthis_invalid_ids(){	
 	echo '<div class="error"><p>Credentials are not valid.</p></div>';	
 }
 
 /*Notification to the existing user who connects the account with any of the social media services. */
-function at_exist_user_success(){
+function addthis_exist_user_success(){
 	$at_exist_userdata = unserialize( stripslashes( $_COOKIE[ 'at_ssi_exist_userdata' ] ) );
 	$at_exist_userdata_service = !empty( $at_exist_userdata["addthis_service"] ) ? $at_exist_userdata["addthis_service"] : $at_exist_userdata["at_custom_service"];
     echo '<div class="updated"><p>You have successfully connected the existing account with the '.ucfirst($at_exist_userdata_service).'.</p></div>'; 
