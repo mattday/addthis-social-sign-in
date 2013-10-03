@@ -9,13 +9,11 @@
    License: Apache
    */
 
-define(ADDTHIS_SSI_PRODUCT_CODE, 'wpssi-202');
-define(ADDTHIS_SSI_AT_VERSION, 300);
+define('ADDTHIS_SSI_PRODUCT_CODE', 'wpssi-202');
+define('ADDTHIS_SSI_AT_VERSION', 300);
 		
 if ( version_compare( get_bloginfo( 'version' ) , '3.1' , '<' ) )
 	require_once( ABSPATH . WPINC . '/registration.php' );
-
-wp_enqueue_script('jquery');
 
 function addthis_ssi_activate() { 
 	
@@ -43,13 +41,18 @@ function addthis_ssi_activate() {
 	add_option( "addthis_ssi_email_exist_text", 'The email address [email], is already registered.  Please login with your existing credentials or use the "Lost your password?" link below.', '', 'yes' );	
 }
 
+function addthis_enqueue_scripts() {
+	wp_enqueue_script('jquery');
+}
+add_action( 'wp_enqueue_scripts', 'addthis_enqueue_scripts' );
+
 function at_force_user_fill_credentials(){
 	
 	$message = ( $_REQUEST['page'] == "addthis-social-sign-in" ? 'any of the service fields with corresponding keys / IDs ' : 'the <b><a href="'.admin_url( 'options-general.php?page=addthis-social-sign-in' ).'">settings</a></b> page with the credentials' );
 	echo '<div class="error"><p>Fill '.$message.' to enable AddThis Social Sign In.</p></div>';	
 }
 
-if( ( substr( $_SERVER["PHP_SELF"], -11 ) == 'plugins.php' || $_REQUEST['page'] == "addthis-social-sign-in" ) && !(get_option( 'addthis_ssi_fbid' ) || get_option( 'addthis_ssi_googleid' ) || ( get_option( 'addthis_ssi_twkey' )  && get_option( 'addthis_ssi_tw_secret' ) ) || ( get_option( 'addthis_ssi_linkedin_key' ) && get_option( 'addthis_ssi_linkedin_secret' ) ) || get_option( 'addthis_ssi_yahoo_enabled' ) ) )
+if( ( substr( $_SERVER["PHP_SELF"], -11 ) == 'plugins.php' || ( isset($_REQUEST['page']) && $_REQUEST['page'] == "addthis-social-sign-in" ) ) && !(get_option( 'addthis_ssi_fbid' ) || get_option( 'addthis_ssi_googleid' ) || ( get_option( 'addthis_ssi_twkey' )  && get_option( 'addthis_ssi_tw_secret' ) ) || ( get_option( 'addthis_ssi_linkedin_key' ) && get_option( 'addthis_ssi_linkedin_secret' ) ) || get_option( 'addthis_ssi_yahoo_enabled' ) ) )
 	add_action( 'admin_notices', 'at_force_user_fill_credentials' );
 
 register_activation_hook( __FILE__, 'addthis_ssi_activate' );
@@ -155,7 +158,7 @@ function addthis_ssi_email_exist_message(){
 	echo '<p class="email-exist-message">'. str_replace( "[email]", $at_exist_userdata_email, get_option('addthis_ssi_email_exist_text')  ).'</p><br/>';	
 }
 
-if( $_REQUEST[ 'action' ] == "at_email_exist" ) {
+if( isset($_REQUEST[ 'action' ]) && $_REQUEST[ 'action' ] == "at_email_exist" ) {
 	add_action( 'login_form', 'addthis_ssi_email_exist_message', 0 );
 }
 
