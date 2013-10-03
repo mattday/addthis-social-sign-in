@@ -46,14 +46,14 @@ function addthis_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'addthis_enqueue_scripts' );
 
-function at_force_user_fill_credentials(){
+function addthis_force_enter_credentials(){
 	
 	$message = ( $_REQUEST['page'] == "addthis-social-sign-in" ? 'any of the service fields with corresponding keys / IDs ' : 'the <b><a href="'.admin_url( 'options-general.php?page=addthis-social-sign-in' ).'">settings</a></b> page with the credentials' );
 	echo '<div class="error"><p>Fill '.$message.' to enable AddThis Social Sign In.</p></div>';	
 }
 
 if( ( substr( $_SERVER["PHP_SELF"], -11 ) == 'plugins.php' || ( isset($_REQUEST['page']) && $_REQUEST['page'] == "addthis-social-sign-in" ) ) && !(get_option( 'addthis_ssi_fbid' ) || get_option( 'addthis_ssi_googleid' ) || ( get_option( 'addthis_ssi_twkey' )  && get_option( 'addthis_ssi_tw_secret' ) ) || ( get_option( 'addthis_ssi_linkedin_key' ) && get_option( 'addthis_ssi_linkedin_secret' ) ) || get_option( 'addthis_ssi_yahoo_enabled' ) ) )
-	add_action( 'admin_notices', 'at_force_user_fill_credentials' );
+	add_action( 'admin_notices', 'addthis_force_enter_credentials' );
 
 register_activation_hook( __FILE__, 'addthis_ssi_activate' );
 
