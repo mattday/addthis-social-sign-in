@@ -167,7 +167,7 @@ echo $addthis_addjs->getAtPluginPromoText();
 		<td colspan="2"><label class="addthis-ssi-field-label">Use square provider buttons</label>&nbsp;<input type="checkbox" class="addthis-ssi-checkbox" name="addthis_ssi_use_32px_buttons" id="addthis_ssi_use_32px_buttons" value="1" <?php echo get_option('addthis_ssi_use_32px_buttons') ? 'checked="checked"' : ""; ?>/>
 		</td>
 	</tr>
-	<tr><td colspan="2"><label class="addthis-ssi-instructions">( By default rectangular buttons which include the provider name will be used )</label></td></tr>
+	<tr><td colspan="2"><label class="addthis-ssi-instructions">( By default rectangular buttons showing the provider names are be used )</label></td></tr>
 	<tr>
 		<td colspan="2"><label class="addthis-ssi-field-label">Enable login popup</label>&nbsp;<input type="checkbox" class="addthis-ssi-checkbox" name="addthis_ssi_popup_enabled" id="addthis_ssi_popup_enabled" value="1" <?php echo get_option('addthis_ssi_popup_enabled') ? 'checked="checked"' : ""; ?>/>
 		</td>
