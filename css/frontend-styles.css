@@ -1,28 +1,55 @@
-#facebook-connect {
+.addthis_toolbox #facebook-connect {
 	background-image: url("../images/ssi-wp-facebook.png") !important;
 }
 
-#at-twitter-connect {
+.addthis_toolbox #at-twitter-connect {
 	background-image: url("../images/ssi-wp-twitter.png") !important;
 }
 
-#google-connect {
+.addthis_toolbox #google-connect {
 	background-image: url("../images/ssi-wp-google.png") !important;
 }
 
-#at-linkedin-connect {
+.addthis_toolbox #at-linkedin-connect {
 	background-image: url("../images/ssi-wp-linkedin.png") !important;
 }
 
-#at-yahoo-connect {
+.addthis_toolbox #at-yahoo-connect {
 	background-image: url("../images/ssi-wp-yahoo.png") !important;
 }
 
-.ssi-button {
+.addthis_toolbox_32px #facebook-connect {
+	background-position:0px -160px;
+}
+
+.addthis_toolbox_32px #at-twitter-connect {
+	background-position:0px -736px;
+}
+
+.addthis_toolbox_32px #google-connect {
+	background-position:0px -256px;
+}
+
+.addthis_toolbox_32px #at-linkedin-connect {
+	background-position:0px -320px;
+}
+
+.addthis_toolbox_32px #at-yahoo-connect {
+	background-position:0px -800px;
+}
+
+.addthis_toolbox  .ssi-button {
     width: 86px !important;
 }
 
-.addthis_toolbox {	
+.addthis_toolbox_32px .ssi-button {
+	background-image: url("../images/widget005_32x32_top.png") !important;
+	width: 36px;
+	height: 32px;
+}
+
+.addthis_toolbox,
+.addthis_toolbox_32px{	
 	margin-bottom:10px;
 }
 

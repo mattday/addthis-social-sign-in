@@ -38,6 +38,7 @@ function addthis_ssi_activate() {
 	add_option( "addthis_ssi_thumbnail_enabled", '', '', 'yes' );
 	add_option( "addthis_ssi_button_text", 'Click one of the buttons below to sign in with your favorite service', '', 'yes' );
 	add_option( "addthis_ssi_popup_enabled", '', '', 'yes' );
+	add_option( "addthis_ssi_use_32px_buttons", '', '', 'yes' );
 	add_option( "addthis_ssi_email_exist_text", 'The email address [email], is already registered.  Please login with your existing credentials or use the "Lost your password?" link below.', '', 'yes' );	
 }
 
@@ -63,11 +64,14 @@ function addthis_ssi_render_buttons( $tmpl_mode = false ){
 	
 	if( get_option( 'addthis_ssi_fbid' ) || get_option( 'addthis_ssi_twkey' ) || get_option( 'addthis_ssi_googleid' ) || ( get_option( 'addthis_ssi_linkedin_key' ) && get_option( 'addthis_ssi_linkedin_secret' ) ) || get_option( 'addthis_ssi_yahoo_enabled' ) ) {
 		
+		$toolbox_class_suffix = "";
+		if ( get_option( 'addthis_ssi_use_32px_buttons' )) $toolbox_class_suffix = "_32px";
+		
 		global $addthis_addjs;
 		
 		$at_ssi_button = '<label class="at_button_label">'. get_option('addthis_ssi_button_text') .'</label>
-				<div class="addthis_toolbox">
-				<a class="addthis_login_facebook"></a>';				
+				<div class="addthis_toolbox' . $toolbox_class_suffix .
+				'"><a class="addthis_login_facebook"></a>';				
 
 		if( get_option('addthis_ssi_twkey') && get_option('addthis_ssi_tw_secret') && extension_loaded('curl') ) {		
 			$at_ssi_button .=  '<a class="addthis_login_twitter"><span id="at-twitter-connect" class="ssi-button"></span></a>';
@@ -85,8 +89,8 @@ function addthis_ssi_render_buttons( $tmpl_mode = false ){
 			$at_ssi_button .= '<a class="addthis_login_yahoo"><span id="at-yahoo-connect" class="ssi-button" at_login_url='.wp_login_url().'></span></a>';
 			wp_enqueue_script( 'y_script', plugins_url('js/at_yahoo.js', __FILE__) );
 		}
-				
-		$at_ssi_button .= '</div>';
+		
+		$at_ssi_button .= '<div style="clear:both;"></div></div>';
 
 		echo $at_ssi_button;
 			
@@ -782,6 +786,7 @@ function addthis_ssi_remove() {
 	delete_option( 'addthis_ssi_thumbnail_enabled' );
 	delete_option( 'addthis_ssi_button_text' );
 	delete_option( 'addthis_ssi_popup_enabled' );
+	delete_option( 'addthis_ssi_use_32px_buttons' );
 	delete_option( 'addthis_ssi_email_exist_text' );
 }
 

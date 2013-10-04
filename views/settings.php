@@ -164,6 +164,11 @@ echo $addthis_addjs->getAtPluginPromoText();
 	</td>
 	</tr>
 	<tr>
+		<td colspan="2"><label class="addthis-ssi-field-label">Use square provider buttons</label>&nbsp;<input type="checkbox" class="addthis-ssi-checkbox" name="addthis_ssi_use_32px_buttons" id="addthis_ssi_use_32px_buttons" value="1" <?php echo get_option('addthis_ssi_use_32px_buttons') ? 'checked="checked"' : ""; ?>/>
+		</td>
+	</tr>
+	<tr><td colspan="2"><label class="addthis-ssi-instructions">( By default rectangular buttons which include the provider name will be used )</label></td></tr>
+	<tr>
 		<td colspan="2"><label class="addthis-ssi-field-label">Enable login popup</label>&nbsp;<input type="checkbox" class="addthis-ssi-checkbox" name="addthis_ssi_popup_enabled" id="addthis_ssi_popup_enabled" value="1" <?php echo get_option('addthis_ssi_popup_enabled') ? 'checked="checked"' : ""; ?>/>
 		</td>
 	</tr>
@@ -178,7 +183,7 @@ echo $addthis_addjs->getAtPluginPromoText();
 	<tr>
 		<td colspan="2">
 		<input type="hidden" name="action" value="update"/>
-		<input type="hidden" name="page_options" value="addthis_ssi_fbid, addthis_ssi_twkey, addthis_ssi_tw_secret, addthis_ssi_googleid, addthis_ssi_linkedin_key, addthis_ssi_linkedin_secret, addthis_ssi_yahoo_enabled, addthis_default_user_role, addthis_ssi_redirect_url, addthis_ssi_welcome_enabled, addthis_ssi_thumbnail_enabled, addthis_ssi_button_text, addthis_ssi_popup_enabled, addthis_ssi_email_exist_text"/>
+		<input type="hidden" name="page_options" value="addthis_ssi_fbid, addthis_ssi_twkey, addthis_ssi_tw_secret, addthis_ssi_googleid, addthis_ssi_linkedin_key, addthis_ssi_linkedin_secret, addthis_ssi_yahoo_enabled, addthis_default_user_role, addthis_ssi_redirect_url, addthis_ssi_welcome_enabled, addthis_ssi_thumbnail_enabled, addthis_ssi_button_text, addthis_ssi_popup_enabled, addthis_ssi_use_32px_buttons, addthis_ssi_email_exist_text"/>
 
 		<p class="submit">
 			<input type="submit" value="Save Changes" class="button-primary">
